@@ -1,5 +1,4 @@
 from RealtimeSTT import AudioToTextRecorder
-from RealtimeTTS import TextToAudioStream, SystemEngine, AzureEngine, ElevenlabsEngine
 import cohere
 import pyttsx3
 
@@ -24,10 +23,7 @@ def generate_response(text):
     return response.text.strip()
 
 def main():
-    # Initialize components
     recorder = AudioToTextRecorder()
-    engine = SystemEngine()
-    tts = TextToAudioStream(engine)
 
     while True:
         print("Speak now (press Enter to stop)...")
@@ -50,8 +46,6 @@ def main():
             
             ai_response = generate_response(user_input)
             print("AI Response:", ai_response)
-
-            
             speak_english(ai_response)
 
 
